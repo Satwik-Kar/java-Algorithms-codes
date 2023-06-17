@@ -63,6 +63,36 @@ public class LL {
         }
 
     }
+    void deleteNodeInPos(int position){
+        if (head == null) {
+            System.out.println("Linked list is empty.");
+            return;
+        }
+
+        if (position == 0) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+        Node previous = null;
+        int pos0 = 0;
+
+        while (current != null) {
+            if (pos0 == position) {
+                previous.next = current.next;
+                return;
+            }
+
+            previous = current;
+            current = current.next;
+            pos0++;
+        }
+
+        System.out.println("Position " + position + " not found in the linked list.");
+
+
+    }
     void printAll(){
 
         if(head == null){

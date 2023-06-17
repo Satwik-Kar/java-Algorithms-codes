@@ -10,6 +10,10 @@ public class Main {
         ll.addInPos(5,3);
         ll.addInPos(0,4);
 
+
+        ll.printAll();
+        ll.deleteNodeInPos(4);
+        System.out.println();
         ll.printAll();
 
     }
