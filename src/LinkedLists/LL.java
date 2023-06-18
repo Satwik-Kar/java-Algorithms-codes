@@ -2,6 +2,8 @@ package LinkedLists;
 
 /**
  * The type Ll.
+ *
+ * @param <T> the type parameter
  */
 public class LL<T> {
     /**
@@ -34,6 +36,11 @@ public class LL<T> {
         }
     }
 
+    /**
+     * Add.
+     *
+     * @param data the data
+     */
     void add(T data) {
         addLast(data);
     }
@@ -143,6 +150,11 @@ public class LL<T> {
 
     }
 
+    /**
+     * Gets size.
+     *
+     * @return the size
+     */
     int getSize() {
         return size;
     }
@@ -151,6 +163,7 @@ public class LL<T> {
      * Search.
      *
      * @param searchDataElement the searchDataElement
+     * @return the int
      */
     int search(T searchDataElement) {
         int pos = -1;
