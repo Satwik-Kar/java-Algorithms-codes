@@ -37,6 +37,7 @@ public class Main {
         linkedListOfTypeDouble.printAll();
         linkedListOfTypeDouble.deleteNodeInPos(4);
         linkedListOfTypeDouble.deleteNodeInPos(3);
+        linkedListOfTypeDouble.add(3.0);
 
         System.out.println();
         linkedListOfTypeDouble.printAll();

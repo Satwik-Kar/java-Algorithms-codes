@@ -34,6 +34,10 @@ public class LL<T> {
         }
     }
 
+    void add(T data) {
+        addLast(data);
+    }
+
     /**
      * Add first.
      *
