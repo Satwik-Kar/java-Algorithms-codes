@@ -15,7 +15,7 @@ public class LL<T> {
     /**
      * The type Node.
      */
-    class Node {
+    private class Node {
         /**
          * The Data.
          */

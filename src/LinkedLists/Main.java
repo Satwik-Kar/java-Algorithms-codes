@@ -6,6 +6,9 @@ import java.util.Scanner;
  * The type Main.
  */
 public class Main {
+    /**
+     * The Type choice.
+     */
     static int TYPE_CHOICE;
 
     /**
