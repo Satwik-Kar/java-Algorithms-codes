@@ -1,24 +1,57 @@
 package LinkedLists;
 
+/**
+ * The type Ll.
+ */
 public class LL {
+    /**
+     * The Head.
+     */
     Node head;
 
-
+    /**
+     * The type Node.
+     */
     static class Node{
+        /**
+         * The Data.
+         */
         int data;
+        /**
+         * The Next.
+         */
         Node next;
+
+        /**
+         * Instantiates a new Node.
+         *
+         * @param data the data
+         */
         Node(int data){
             this.data = data;
             next = null;
 
 
         }
+
+        /**
+         * Instantiates a new Node.
+         *
+         * @param data  the data
+         * @param index the index
+         */
         Node(int data,int index){
             this.data = data;
             next = null;
         }
 
     }
+
+    /**
+     * Add first.
+     *
+     * @param data the data
+     */
     void addFirst(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -31,6 +64,12 @@ public class LL {
 
 
     }
+
+    /**
+     * Add last.
+     *
+     * @param data the data
+     */
     void addLast(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -45,6 +84,13 @@ public class LL {
 
 
     }
+
+    /**
+     * Add in pos.
+     *
+     * @param data     the data
+     * @param position the position
+     */
     void addInPos(int data,int position){
 
         Node newNode = new Node(data);
@@ -63,6 +109,12 @@ public class LL {
         }
 
     }
+
+    /**
+     * Delete node in pos.
+     *
+     * @param position the position
+     */
     void deleteNodeInPos(int position){
         if (head == null) {
             System.out.println("Linked list is empty.");
@@ -93,6 +145,10 @@ public class LL {
 
 
     }
+
+    /**
+     * Print all.
+     */
     void printAll(){
 
         if(head == null){
