@@ -3,7 +3,7 @@ package LinkedLists;
 /**
  * The type Ll.
  */
-public class LL {
+public class LL<T> {
     /**
      * The Head.
      */
@@ -12,11 +12,11 @@ public class LL {
     /**
      * The type Node.
      */
-    static class Node{
+    class Node {
         /**
          * The Data.
          */
-        int data;
+        T data;
         /**
          * The Next.
          */
@@ -27,22 +27,11 @@ public class LL {
          *
          * @param data the data
          */
-        Node(int data){
+        Node(T data) {
             this.data = data;
             next = null;
 
 
-        }
-
-        /**
-         * Instantiates a new Node.
-         *
-         * @param data  the data
-         * @param index the index
-         */
-        Node(int data,int index){
-            this.data = data;
-            next = null;
         }
 
     }
@@ -52,15 +41,14 @@ public class LL {
      *
      * @param data the data
      */
-    void addFirst(int data){
+    void addFirst(T data) {
         Node newNode = new Node(data);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         newNode.next = head;
         head = newNode;
-
 
 
     }
@@ -70,14 +58,14 @@ public class LL {
      *
      * @param data the data
      */
-    void addLast(int data){
+    void addLast(T data) {
         Node newNode = new Node(data);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         Node currentNode = head;
-        while(currentNode.next != null){
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
@@ -91,7 +79,7 @@ public class LL {
      * @param data     the data
      * @param position the position
      */
-    void addInPos(int data,int position){
+    void addInPos(T data, int position) {
 
         Node newNode = new Node(data);
         if (position == 0) {
@@ -100,7 +88,7 @@ public class LL {
         } else {
             Node current = head;
             int pos0 = 0;
-            while (pos0 < position -1  && current.next != null) {
+            while (pos0 < position - 1 && current.next != null) {
                 current = current.next;
                 pos0++;
             }
@@ -115,7 +103,7 @@ public class LL {
      *
      * @param position the position
      */
-    void deleteNodeInPos(int position){
+    void deleteNodeInPos(int position) {
         if (head == null) {
             System.out.println("Linked list is empty.");
             return;
@@ -147,18 +135,42 @@ public class LL {
     }
 
     /**
+     * Search.
+     *
+     * @param searchDataElement the searchDataElement
+     */
+    int search(T searchDataElement){
+        int pos = -1;
+        Node  current = head;
+
+        while(current.next!=null){
+            pos++;
+            T data  = current.data;
+            if(searchDataElement.equals(data)){
+
+                return pos;
+
+            }
+            current = current.next;
+
+        }
+        return -1; // SEARCHED NODE IS NOT PRESENT IN THE LIST
+    }
+
+
+    /**
      * Print all.
      */
-    void printAll(){
+    void printAll() {
 
-        if(head == null){
+        if (head == null) {
             System.out.println("list is empty");
             return;
         }
         Node currentNode = head;
-        while(currentNode!= null){
-            int data = currentNode.data;
-            System.out.print(data+"-->>");
+        while (currentNode != null) {
+            T data = currentNode.data;
+            System.out.print(data + "-->>");
             currentNode = currentNode.next;
         }
         System.out.print("NULL");

@@ -10,19 +10,36 @@ public class Main {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        LL ll = new LL();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
-        ll.addFirst(4);
-        ll.addInPos(5,3);
-        ll.addInPos(0,4);
+        LL<Integer> linkedListOfTypeInteger = new LL<>();
+        linkedListOfTypeInteger.addFirst(1);
+        linkedListOfTypeInteger.addFirst(2);
+        linkedListOfTypeInteger.addFirst(3);
+        linkedListOfTypeInteger.addFirst(4);
+        linkedListOfTypeInteger.addInPos(5,3);
+        linkedListOfTypeInteger.addInPos(0,4);
 
+        LL<Double> linkedListOfTypeDouble = new LL<>();
+        linkedListOfTypeDouble.addFirst(1.0);
+        linkedListOfTypeDouble.addFirst(2.0);
+        linkedListOfTypeDouble.addFirst(3.0);
+        linkedListOfTypeDouble.addFirst(4.0);
+        linkedListOfTypeDouble.addInPos(5.0,3);
+        linkedListOfTypeDouble.addInPos(0.0,4);
 
-        ll.printAll();
-        ll.deleteNodeInPos(4);
+        linkedListOfTypeInteger.printAll();
+        linkedListOfTypeInteger.deleteNodeInPos(4);
         System.out.println();
-        ll.printAll();
+        linkedListOfTypeInteger.printAll();
+        System.out.println();
+        int searchElementInteger = linkedListOfTypeInteger.search(2);
+        System.out.println(searchElementInteger);
 
+        linkedListOfTypeDouble.printAll();
+        linkedListOfTypeDouble.deleteNodeInPos(4);
+        System.out.println();
+        linkedListOfTypeDouble.printAll();
+        System.out.println();
+        int searchElementDouble = linkedListOfTypeDouble.search(2.0);
+        System.out.println(searchElementDouble);
     }
 }
