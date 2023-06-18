@@ -7,7 +7,8 @@ public class LL<T> {
     /**
      * The Head.
      */
-    Node head;
+    private Node head;
+    private int size = 1;
 
     /**
      * The type Node.
@@ -30,10 +31,7 @@ public class LL<T> {
         Node(T data) {
             this.data = data;
             next = null;
-
-
         }
-
     }
 
     /**
@@ -49,6 +47,7 @@ public class LL<T> {
         }
         newNode.next = head;
         head = newNode;
+        size++;
 
 
     }
@@ -69,6 +68,7 @@ public class LL<T> {
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
+        size++;
 
 
     }
@@ -81,20 +81,23 @@ public class LL<T> {
      */
     void addInPos(T data, int position) {
 
-        Node newNode = new Node(data);
+
         if (position == 0) {
-            newNode.next = head;
-            head = newNode;
-        } else {
-            Node current = head;
-            int pos0 = 0;
-            while (pos0 < position - 1 && current.next != null) {
-                current = current.next;
-                pos0++;
-            }
-            newNode.next = current.next;
-            current.next = newNode;
+            addFirst(data);
+            size++;
+            return;
         }
+        Node newNode = new Node(data);
+        Node current = head;
+        int pos0 = 0;
+        while (pos0 < position - 1 && current.next != null) {
+            current = current.next;
+            pos0++;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
+        size++;
+
 
     }
 
@@ -111,6 +114,7 @@ public class LL<T> {
 
         if (position == 0) {
             head = head.next;
+            size--;
             return;
         }
 
@@ -121,6 +125,7 @@ public class LL<T> {
         while (current != null) {
             if (pos0 == position) {
                 previous.next = current.next;
+                size--;
                 return;
             }
 
@@ -134,14 +139,18 @@ public class LL<T> {
 
     }
 
+    int getSize() {
+        return size;
+    }
+
     /**
      * Search.
      *
      * @param searchDataElement the searchDataElement
      */
-    int search(T searchDataElement){
+    int search(T searchDataElement) {
         int pos = -1;
-        Node  current = head;
+        Node current = head;
 
         while(current.next!=null){
             pos++;

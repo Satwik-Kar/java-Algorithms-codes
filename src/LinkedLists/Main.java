@@ -32,14 +32,16 @@ public class Main {
         linkedListOfTypeInteger.printAll();
         System.out.println();
         int searchElementInteger = linkedListOfTypeInteger.search(2);
-        System.out.println(searchElementInteger);
+        System.out.println(searchElementInteger + " size = " + linkedListOfTypeInteger.getSize());
 
         linkedListOfTypeDouble.printAll();
         linkedListOfTypeDouble.deleteNodeInPos(4);
+        linkedListOfTypeDouble.deleteNodeInPos(3);
+
         System.out.println();
         linkedListOfTypeDouble.printAll();
         System.out.println();
         int searchElementDouble = linkedListOfTypeDouble.search(2.0);
-        System.out.println(searchElementDouble);
+        System.out.println(searchElementDouble + " size = " + linkedListOfTypeDouble.getSize());
     }
 }
