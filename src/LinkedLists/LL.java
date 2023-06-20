@@ -11,6 +11,8 @@ public class LL<T> {
      */
     private Node head;
     private int size = 1;
+    public static final int ASCENDING = 0;
+    public static final int DESCENDING = 1;
 
     /**
      * The type Node.
@@ -172,7 +174,7 @@ public class LL<T> {
         while(current.next!=null){
             pos++;
             T data  = current.data;
-            if(searchDataElement.equals(data)){
+            if (searchDataElement.equals(data)) {
 
                 return pos;
 
@@ -181,6 +183,75 @@ public class LL<T> {
 
         }
         return -1; // SEARCHED NODE IS NOT PRESENT IN THE LIST
+    }
+
+    /**
+     * Sort.
+     *
+     * @param sortingMethod the sorting method
+     *                      LL.ASCENDING=(0) or LL.DESCENDING=(1)
+     */
+    void sort(int sortingMethod) {
+        if (head == null || head.next == null) {
+            return; // List is empty or contains only one element, no need to sort
+        }
+
+        boolean swapped;
+        do {
+            swapped = false;
+            Node current = head;
+            Node previous = null;
+
+            while (current != null && current.next != null) {
+                if (sortingMethod == ASCENDING && compare(current.data, current.next.data) > 0) {
+                    // Swap current node with the next node
+                    if (previous != null) {
+                        previous.next = current.next;
+                    } else {
+                        head = current.next;
+                    }
+                    Node nextNode = current.next.next;
+                    current.next.next = current;
+                    current.next = nextNode;
+                    swapped = true;
+                } else if (sortingMethod == DESCENDING && compare(current.data, current.next.data) < 0) {
+                    // Swap current node with the next node
+                    if (previous != null) {
+                        previous.next = current.next;
+                    } else {
+                        head = current.next;
+                    }
+                    Node nextNode = current.next.next;
+                    current.next.next = current;
+                    current.next = nextNode;
+                    swapped = true;
+                }
+
+                previous = current;
+                current = current.next;
+            }
+        } while (swapped);
+    }
+
+    private int compare(T data1, T data2) {
+        if (data1.equals(data2)) {
+            return 0;
+        } else {
+            String str1 = data1.toString();
+            String str2 = data2.toString();
+            int length1 = str1.length();
+            int length2 = str2.length();
+            int minLength = Math.min(length1, length2);
+
+            for (int i = 0; i < minLength; i++) {
+                int charDiff = str1.charAt(i) - str2.charAt(i);
+                if (charDiff != 0) {
+                    return charDiff;
+                }
+            }
+
+            return length1 - length2;
+        }
     }
 
 

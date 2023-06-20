@@ -30,6 +30,7 @@ public class Main {
             System.out.println("(3):Display LinkedList");
             System.out.println("(4):Display size of LinkedList");
             System.out.println("(5):Search an element inside the LinkedList");
+            System.out.println("(6):Sort LinkedList");
 
             choice = sc.nextInt();
             switch (choice) {
@@ -134,6 +135,29 @@ public class Main {
                         System.out.println("Element found at index:" + found);
                     }
                 }
+                case 6 -> {
+                    if (linkedList == null) {
+                        System.out.println("Initialize a LinkedList, then try to find a element of LinkedList");
+                    } else {
+
+                        System.out.println("Press 0 for ascending or 1 for Descending:");
+                        int response = sc.nextInt();
+                        if (response == 0) {
+                            linkedList.sort(LL.ASCENDING);
+                            System.out.println("Sorted in ascending successfully.");
+
+                        } else if (response == 1) {
+                            linkedList.sort(LL.DESCENDING);
+                            System.out.println("Sorted in descending successfully.");
+
+                        } else {
+                            System.out.println("Wrong choice");
+                        }
+
+                    }
+
+                }
+
                 default -> System.out.println("Wrong choice");
             }
 
